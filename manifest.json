@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Locker (React)",
+  "version": "1.0",
+  "description": "Lock tabs with a password (Built with React)",
+  "permissions": ["storage", "scripting", "tabs"],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/lock.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
